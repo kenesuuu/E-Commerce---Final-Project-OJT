@@ -1,131 +1,134 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dashboard</title>
-    <link rel="stylesheet" href="styles.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-    />
-  </head>
-  <body>
-    <!-- Header -->
-    <header class="header">
-      <span class="header-text">
-        <img src="leaf-icon.png" alt="Leaf Icon" /> Let's order fresh items for
-        you.
-      </span>
-      <div class="header-buttons">
-        <button class="signup-btn">Signup</button>
-        <button class="login-btn">Login</button>
-      </div>
-    </header>
 
-    <!-- Sidebar -->
-    <aside class="sidebar">
-      <div class="sidebar-inner">
-        <img src="logo.png" alt="Logo" class="sidebar-logo" />
-        <button class="sidebar-btn">
-          <img src="grid-icon.png" alt="Menu" />
-        </button>
-      </div>
-    </aside>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+</head>
 
-    <!-- Search and Cart Container -->
-    <div class="search-cart-container">
-      <div class="search-container">
-        <input type="text" placeholder="Search Products" />
-        <button>
-          <i class="fa fa-search"></i>
-        </button>
-      </div>
-      <button class="cart-btn">
-        <i class="fa fa-shopping-cart"></i> Cart (0)
+<body>
+  <!-- Header -->
+  <header class="header">
+    <span class="header-text">
+      <img src="leaf-icon.png" alt="Leaf Icon" /> Let's order fresh items for
+      you.
+    </span>
+    <div class="header-buttons">
+      <button class="signup-btn">Signup</button>
+      <button class="login-btn">Login</button>
+    </div>
+  </header>
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+      <img src="logo.png" alt="Logo" class="sidebar-logo" />
+      <button class="sidebar-btn">
+        <img src="grid-icon.png" alt="Menu" />
       </button>
     </div>
+  </aside>
 
-    <!-- Main Content -->
-    <div class="main-container">
-      <!-- Categories Section -->
-      <div class="categories">
-        <h3>Categories</h3>
-        <div class="category selected">
-          <img src="all-products.png" alt="All Products" />
-          <span>All Products</span>
-          <div class="count">36</div>
-        </div>
-        <div class="category">
-          <img src="vegetables.png" alt="Vegetables" />
-          <span>Vegetables</span>
-          <div class="count">12</div>
-        </div>
-        <div class="category">
-          <img src="fruits.png" alt="Fruits" />
-          <span>Fruits</span>
-          <div class="count">12</div>
-        </div>
-        <div class="category">
-          <img src="pork.png" alt="Pork" />
-          <span>Pork</span>
-          <div class="count">12</div>
-        </div>
-        <div class="category">
-          <img src="beef.png" alt="Beef" />
-          <span>Beef</span>
-          <div class="count">12</div>
-        </div>
-        <div class="category">
-          <img src="chicken.png" alt="Chicken" />
-          <span>Chicken</span>
-          <div class="count">12</div>
-        </div>
-      </div>
-
-      <!-- Product Grid Section -->
-      <main class="product-grid">
-        <h2>All Products (36)</h2>
-        <ul class="products">
-          <li class="product">
-            <img src="assets/img/pork-sinigang.jpg" alt="Product Image" />
-            <p class="category">Vegetables</p>
-            <p class="rating">⭐⭐⭐⭐⭐ 36 Rating</p>
-            <p class="price">$10</p>
-          </li>
-          <li class="product">
-            <img src="assets/img/pork-sinigang.jpg" alt="Product Image" />
-            <p class="category">Vegetables</p>
-            <p class="rating">⭐⭐⭐⭐⭐ 36 Rating</p>
-            <p class="price">$10</p>
-          </li>
-          <li class="product">
-            <img src="assets/img/pork-sinigang.jpg" alt="Product Image" />
-            <p class="category">Vegetables</p>
-            <p class="rating">⭐⭐⭐⭐⭐ 36 Rating</p>
-            <p class="price">$10</p>
-          </li>
-          <li class="product">
-            <img src="assets/img/pork-sinigang.jpg" alt="Product Image" />
-            <p class="category">Vegetables</p>
-            <p class="rating">⭐⭐⭐⭐⭐ 36 Rating</p>
-            <p class="price">$10</p>
-          </li>
-          <li class="product">
-            <img src="assets/img/pork-sinigang.jpg" alt="Product Image" />
-            <p class="category">Vegetables</p>
-            <p class="rating">⭐⭐⭐⭐⭐ 36 Rating</p>
-            <p class="price">$10</p>
-          </li>
-          <li class="product">
-            <img src="assets/img/pork-sinigang.jpg" alt="Product Image" />
-            <p class="category">Vegetables</p>
-            <p class="rating">⭐⭐⭐⭐⭐ 36 Rating</p>
-            <p class="price">$10</p>
-          </li>
-          <!-- Repeat for other products -->
-        </ul>
-      </main>
+  <!-- Search and Cart Container -->
+  <div class="search-cart-container">
+    <div class="search-container">
+      <input type="text" placeholder="Search Products" />
+      <button>
+        <i class="fa fa-search"></i>
+      </button>
     </div>
-  </body>
+    <button class="cart-btn">
+      <i class="fa fa-shopping-cart"></i> Cart (0)
+    </button>
+  </div>
+
+  <!-- Main Content -->
+  <div class="main-container">
+    <!-- Sign up Section -->
+
+    <!-- Categories Section -->
+    <div class="categories">
+      <h3>Categories</h3>
+      <div class="category selected">
+        <img src="all-products.png" alt="All Products" />
+        <span>All Products</span>
+        <div class="count">36</div>
+      </div>
+      <div class="category">
+        <img src="vegetables.png" alt="Vegetables" />
+        <span>Vegetables</span>
+        <div class="count">12</div>
+      </div>
+      <div class="category">
+        <img src="fruits.png" alt="Fruits" />
+        <span>Fruits</span>
+        <div class="count">12</div>
+      </div>
+      <div class="category">
+        <img src="pork.png" alt="Pork" />
+        <span>Pork</span>
+        <div class="count">12</div>
+      </div>
+      <div class="category">
+        <img src="beef.png" alt="Beef" />
+        <span>Beef</span>
+        <div class="count">12</div>
+      </div>
+      <div class="category">
+        <img src="chicken.png" alt="Chicken" />
+        <span>Chicken</span>
+        <div class="count">12</div>
+      </div>
+    </div>
+
+    <!-- Product Grid Section -->
+    <main class="product-grid">
+      <h2>All Products (36)</h2>
+      <ul class="products products-main" id="products-main">
+        <li class="product">
+          <img src="assets/img/pork-sinigang.jpg" alt="Product Image" />
+          <p class="category">Vegetables</p>
+          <p class="rating">⭐⭐⭐⭐⭐ 36 Rating</p>
+          <p class="price">$10</p>
+        </li>
+        <li class="product">
+          <img src="assets/img/pork-sinigang.jpg" alt="Product Image" />
+          <p class="category">Vegetables</p>
+          <p class="rating">⭐⭐⭐⭐⭐ 36 Rating</p>
+          <p class="price">$10</p>
+        </li>
+        <li class="product">
+          <img src="assets/img/pork-sinigang.jpg" alt="Product Image" />
+          <p class="category">Vegetables</p>
+          <p class="rating">⭐⭐⭐⭐⭐ 36 Rating</p>
+          <p class="price">$10</p>
+        </li>
+        <li class="product">
+          <img src="assets/img/pork-sinigang.jpg" alt="Product Image" />
+          <p class="category">Vegetables</p>
+          <p class="rating">⭐⭐⭐⭐⭐ 36 Rating</p>
+          <p class="price">$10</p>
+        </li>
+        <li class="product">
+          <img src="assets/img/pork-sinigang.jpg" alt="Product Image" />
+          <p class="category">Vegetables</p>
+          <p class="rating">⭐⭐⭐⭐⭐ 36 Rating</p>
+          <p class="price">$10</p>
+        </li>
+        <li class="product">
+          <img src="assets/img/pork-sinigang.jpg" alt="Product Image" />
+          <p class="category">Vegetables</p>
+          <p class="rating">⭐⭐⭐⭐⭐ 36 Rating</p>
+          <p class="price">$10</p>
+        </li>
+        <!-- Repeat for other products -->
+      </ul>
+    </main>
+  </div>
+  <script src="assets/js/script.js"></script>
+</body>
+
 </html>
