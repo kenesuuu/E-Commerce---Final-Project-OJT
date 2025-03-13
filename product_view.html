@@ -18,8 +18,8 @@
             love for Filipino food
         </p>
         <div class="header-buttons">
-            <button class="signup-btn">Signup</button>
-            <button class="login-btn">Login</button>
+            <a href="login.html" class="signup-btn">Signup</a href="">
+            <a href="sign-up.html" class="login-btn">Login</a href="">
         </div>
     </header>
 
@@ -54,7 +54,48 @@
         <!-- The first child of main is for notification -->
         <ul id="notification">
         </ul>
-        <section></section>
+        <section class="cart-section">
+            <section class="accordion">
+                <a href="#" id="return-product-view">
+                    <span class="fa-solid fa-arrow-left"></span>
+                </a>
+                <p>Shopping Cart ()</p>
+            </section>
+            <section class="cart-list">
+                <ul>
+                </ul>
+                <section class="checkout-cart">
+                    <h4>Shipping Information</h4>
+                    <form class="shipping-information">
+                        <section class="row">
+                            <input type="text" class="control-form" name="firstName" id="firstName"
+                                placeholder="First Name">
+                            <input type="text" class="control-form" name="lastName" id="lastName"
+                                placeholder="Last Name">
+                        </section>
+                        <section class="row">
+                            <input type="text" class="control-form" name="address" id="address" placeholder="Address">
+                        </section>
+                        <section class="row">
+                            <input type="text" class="control-form" name="address2" id="address2"
+                                placeholder="Address 2">
+                        </section>
+                        <section class="row">
+                            <input type="text" class="control-form" name="state" id="state" placeholder="State">
+                            <input type="text" class="control-form" name="city" id="city" placeholder="City">
+                            <input type="text" class="control-form" name="zipCode" id="zipCode" placeholder="Zip Code">
+                        </section>
+                    </form>
+                    <h4 class="order-summary-title">Order Summary</h4>
+                    <p class="order-summary">Items <span>₱40</span></p>
+                    <p class="order-summary">Shipping Fee <span>₱50</span></p>
+                    <p class="order-summary">Total Amount <span class="total-amount">₱170</span></p>
+                    <section class="checkout-item row">
+                        <input type="submit" class="control-form" value="Proceed to Checkout">
+                    </section>
+                </section>
+            </section>
+        </section>
         <section class="accordion">
             <a href="index.html">
                 <span class="fa-solid fa-arrow-left"></span>
@@ -136,7 +177,7 @@
             </ul>
         </section>
     </main>
-    <script src="assets/js/script.js"></script>
+    <script src="assets/js/product_details.js"></script>
 </body>
 
 </html>

@@ -1,84 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>E-Commerce</title>
-    <link rel="stylesheet" href="assets/css/sign-up.css" />
-    <link
-      rel="shortcut icon"
-      href="assets/favicon/image.png"
-      type="image/x-icon"
-    />
-  </head>
-  <body>
-    <main>
-      <section>
-        <img src="assets/img/logo.png" alt="Shop Logo" />
-        <div>
-          <p>
-            <span>T</span><span>i</span><span>n</span><span>d</span
-            ><span>a</span><span>h</span><span>a</span><span>n</span>
-          </p>
-          <p>Shop</p>
-        </div>
-      </section>
-      <section>
-        <div>
-          <section>
-            <h3>Signup to order</h3>
-            <a href="">Already a member? Login here.</a>
-          </section>
-          <form class="sign-up" id="signUpForm">
-            <div class="control-form">
-              <label for="firstname">
-                <input
-                  type="text"
-                  name="firstname"
-                  id="firstname"
-                  placeholder="First Name"
-                />
-              </label>
-              <label for="lastname">
-                <input
-                  type="text"
-                  name="lastname"
-                  id="lastname"
-                  placeholder="Last Name"
-                />
-              </label>
-            </div>
-            <label for="email">
-              <input type="text" name="email" id="email" placeholder="Email" />
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>E-Commerce</title>
+  <link rel="stylesheet" href="assets/css/sign-up.css" />
+  <link rel="shortcut icon" href="assets/favicon/image.png" type="image/x-icon" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+</head>
+</head>
+
+<body>
+  <main>
+    <section>
+      <span class="fa-solid fa-utensils"></span>
+      <div>
+        <p>
+          <span>S</span><span>a</span><span>v</span><span>o</span><span>r</span><span>P</span><span>i</span><span>n</span><span>o</span><span>y</span>
+        </p>
+        <p>Carinderia</p>
+      </div>
+    </section>
+    <section>
+      <div>
+        <section>
+          <h3>Signup to order</h3>
+          <a href="login.html">Already a member? Login here.</a>
+        </section>
+        <form class="sign-up" id="signUpForm">
+          <div class="control-form">
+            <label for="firstname">
+              <input type="text" name="firstname" id="firstname" placeholder="First Name" />
             </label>
-            <label for="password">
-              <input
-                type="password"
-                name="password"
-                id="password"
-                placeholder="Password"
-              />
+            <label for="lastname">
+              <input type="text" name="lastname" id="lastname" placeholder="Last Name" />
             </label>
-            <label for="repassword">
-              <input
-                type="password"
-                name="confirmPassword"
-                id="confirmPassword"
-                placeholder="Confirm Password"
-              />
-            </label>
-            <span></span>
-            <input type="submit" class="signUpButton" value="Signup" />
-          </form>
-        </div>
-        <div class="signup-right-panel">
-          <img src="assets/img/ShopImage.jpg" alt="Organic Shop Image" />
-          <form action="">
-            <input type="submit" value="x" class="close-button" />
-          </form>
-        </div>
-      </section>
-    </main>
-    <script src="assets/js/script.js"></script>
-  </body>
+          </div>
+          <label for="email">
+            <input type="text" name="email" id="email" placeholder="Email" />
+          </label>
+          <label for="password">
+            <input type="password" name="password" id="password" placeholder="Password" />
+          </label>
+          <label for="repassword">
+            <input type="password" name="confirmPassword" id="confirmPassword" placeholder="Confirm Password" />
+          </label>
+          <span></span>
+          <input type="submit" class="signUpButton" value="Signup" />
+        </form>
+      </div>
+      <div class="signup-right-panel">
+        <img src="assets/img/ShopImage.jpg" alt="Organic Shop Image" />
+        <form action="">
+          <input type="submit" value="x" class="close-button" />
+        </form>
+      </div>
+    </section>
+  </main>
+  <script src="assets/js/script.js"></script>
+</body>
+
 </html>
