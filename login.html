@@ -17,20 +17,42 @@
         </section>
         <section>
             <div>
-                <form class="login-form" action="/login" method="POST">
+                <form class="login-form" id="loginForm">
                     <div class="form-group">
                         <input type="email" id="email" name="email" placeholder="jgurtiza@vilage88.com" required>
                     </div>
                     <div class="form-group">
                         <input type="password" id="password" name="password" placeholder="Password" required>
                     </div>
-                    <span></span>
+                    <span id="login-error" style="color: red;"></span>
                     <input type="submit" value="Login">
                 </form>
                 <p class="register-link">New Member? <a href="sign-up.html">Register here.</a></p>
             </div>
         </section>
     </main>
+    <script type="module">
+        import { login } from "/assets/js/auth.js";
+
+        document.getElementById("loginForm").addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            // Get form values
+            const email = document.getElementById("email").value;
+            const password = document.getElementById("password").value;
+
+            // Call the login function from auth.js
+            const result = login(email, password);
+
+            // Display result message
+            if (result.success) {
+                alert(result.message);
+                window.location.href = "index.html"; // Redirect to home page
+            } else {
+                document.getElementById("login-error").textContent = result.message;
+            }
+        });
+    </script>
 </body>
 
 </html>
