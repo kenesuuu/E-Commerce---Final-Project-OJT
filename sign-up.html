@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+<<<<<<< HEAD
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -82,3 +83,91 @@
     <script src="assets/js/script.js"></script>
   </body>
 </html>
+=======
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>E-Commerce</title>
+  <link rel="stylesheet" href="assets/css/sign-up.css" />
+  <link rel="shortcut icon" href="assets/favicon/image.png" type="image/x-icon" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+</head>
+
+<body>
+  <main>
+    <section>
+      <span class="fa-solid fa-utensils"></span>
+      <div>
+        <p>
+          <span>S</span><span>a</span><span>v</span><span>o</span><span>r</span><span>P</span><span>i</span><span>n</span><span>o</span><span>y</span>
+        </p>
+        <p>Carinderia</p>
+      </div>
+    </section>
+    <section>
+      <div>
+        <section>
+          <h3>Signup to order</h3>
+          <a href="login.html">Already a member? Login here.</a>
+        </section>
+        <form class="sign-up" id="signUpForm">
+          <div class="control-form">
+            <label for="firstname">
+              <input type="text" name="firstname" id="firstname" placeholder="First Name" required />
+            </label>
+            <label for="lastname">
+              <input type="text" name="lastname" id="lastname" placeholder="Last Name" required />
+            </label>
+          </div>
+          <label for="email">
+            <input type="email" name="email" id="email" placeholder="Email" required />
+          </label>
+          <label for="password">
+            <input type="password" name="password" id="password" placeholder="Password" required />
+          </label>
+          <label for="repassword">
+            <input type="password" name="confirmPassword" id="confirmPassword" placeholder="Confirm Password"
+              required />
+          </label>
+          <span id="error-message" style="color: red;"></span>
+          <input type="submit" class="signUpButton" value="Signup" />
+        </form>
+      </div>
+      <div class="signup-right-panel">
+        <img src="assets/img/ShopImage.jpg" alt="Organic Shop Image" />
+        <form action="">
+          <input type="submit" value="x" class="close-button" />
+        </form>
+      </div>
+    </section>
+  </main>
+  <script type="module">
+    import { signUp } from "/assets/js/auth.js";
+
+    document.getElementById("signUpForm").addEventListener("submit", function (event) {
+      event.preventDefault();
+
+      // Get form values
+      const firstName = document.getElementById("firstname").value;
+      const lastName = document.getElementById("lastname").value;
+      const email = document.getElementById("email").value;
+      const password = document.getElementById("password").value;
+      const confirmPassword = document.getElementById("confirmPassword").value;
+
+      // Call the signUp function from auth.js
+      const result = signUp(firstName, lastName, email, password, confirmPassword);
+
+      // Display result message
+      if (result.success) {
+        alert(result.message);
+        window.location.href = "login.html"; // Redirect to login page
+      } else {
+        document.getElementById("error-message").textContent = result.message;
+      }
+    });
+  </script>
+</body>
+
+</html>
+>>>>>>> 6d160b7 (payment)
