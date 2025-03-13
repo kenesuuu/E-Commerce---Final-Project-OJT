@@ -82,6 +82,21 @@ img {
     transition: 0.3s;
 }
 
+.logout-btn {
+    background: red;
+    border: none;
+    color: white;
+    padding: 7px 14px;
+    border-radius: 8px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.logout-btn:hover {
+    background: rgb(158, 6, 6);
+}
+
 .login-btn:hover {
     background: #8d6ee8;
 }
