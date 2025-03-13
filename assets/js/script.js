@@ -331,6 +331,10 @@ function filterProducts(category, searchQuery = "") {
   productCount.textContent = `${category} (${filteredProducts.length})`;
 }
 
+cartBtnModal.addEventListener("click", function () {
+  location.href = "cart.html";
+});
+
 // Category click event
 category.forEach((val, index) => {
   val.children[1].innerText = categories[index].name;
