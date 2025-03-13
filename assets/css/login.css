@@ -1,0 +1,113 @@
+ /* Global Styles */
+ * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: system-ui, -apple-system, sans-serif;
+}
+
+body {
+    background-color: #F3F8FD;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+a {
+    text-decoration: none;
+    color: #9C89FF;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Main Container */
+main {
+    background-color: #FFFFFF;
+    border-radius: 1em;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 2em;
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
+
+/* Logo and Heading */
+main > section:first-child {
+    margin-bottom: 2em;
+}
+
+main > section:first-child img {
+    width: 3em;
+    margin-bottom: 1em;
+}
+
+main > section:first-child p {
+    font-size: 1.5rem;
+    color: #8073C5;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* Form Styles */
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.login-form input {
+    width: 100%;
+    padding: 1em;
+    border: 1px solid #DAD3FF;
+    border-radius: 0.5em;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.login-form input:focus {
+    border-color: #9C89FF;
+}
+
+.login-form input[type="submit"] {
+    background-color: #9C89FF;
+    color: #FFFFFF;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+    padding: 1em;
+    border-radius: 0.5em;
+    transition: background-color 0.3s ease;
+}
+
+.login-form input[type="submit"]:hover {
+    background-color: #8073C5;
+}
+
+/* Register Link */
+.register-link {
+    margin-top: 1em;
+    font-size: 0.9rem;
+    color: #7D7D7D;
+}
+
+.register-link a {
+    color: #9C89FF;
+    font-weight: bold;
+}
+
+/* Media Queries */
+@media (max-width: 480px) {
+    main {
+        padding: 1.5em;
+        margin: 1em;
+    }
+
+    main > section:first-child p {
+        font-size: 1.2rem;
+    }
+}
