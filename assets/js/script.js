@@ -368,6 +368,71 @@ function createNotification(text, color) {
 cartBtnModal.addEventListener("click", function () {
   cart.style.display = "block";
 
+  // Get modal elements
+  const signupModal = document.getElementById("signupModal");
+  const loginModal = document.getElementById("loginModal"); // Assuming you have a login modal
+  const signupBtn = document.querySelector(".signup-btn");
+  const showLogin = document.getElementById("showLogin");
+  const closeModals = document.querySelectorAll(".close-modal");
+
+  // Open Signup Modal
+  signupBtn.addEventListener("click", () => {
+    signupModal.style.display = "flex";
+  });
+
+  // Switch to Login Modal
+  if (showLogin) {
+    showLogin.addEventListener("click", (e) => {
+      e.preventDefault();
+      signupModal.style.display = "none";
+      if (loginModal) {
+        loginModal.style.display = "flex";
+      }
+    });
+  }
+
+  // Close Modals (All Close Buttons)
+  closeModals.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      signupModal.style.display = "none";
+      if (loginModal) {
+        loginModal.style.display = "none";
+      }
+    });
+  });
+
+  // Close Modals by Clicking Outside
+  window.addEventListener("click", (e) => {
+    if (e.target === signupModal) {
+      signupModal.style.display = "none";
+    }
+    if (loginModal && e.target === loginModal) {
+      loginModal.style.display = "none";
+    }
+  });
+
+  // Signup Form Submission
+  document.getElementById("signupForm").addEventListener("submit", (e) => {
+    e.preventDefault();
+    const firstName = document.getElementById("signupFirstName").value;
+    const lastName = document.getElementById("signupLastName").value;
+    const email = document.getElementById("signupEmail").value;
+    const password = document.getElementById("signupPassword").value;
+    const confirmPassword = document.getElementById("signupConfirmPassword").value;
+
+    // Validation for Password Match
+    if (password !== confirmPassword) {
+      alert("Passwords do not match!");
+      return;
+    }
+
+    // Simulate Signup Logic
+    console.log("Signup with:", { firstName, lastName, email, password });
+    alert("Signup successful!");
+    signupModal.style.display = "none";
+  });
+
+
   if (userCart.length == 0) {
     const li = document.createElement("li");
     li.innerText = "No Items in Cart";
