@@ -82,7 +82,7 @@ function handleCheckout() {
   // If validation passes, proceed to checkout
   alert("Proceeding to checkout...");
   // Redirect to a confirmation page or process the order
-  window.location.href = "checkout_confirmation.html"; // Example: Redirect to a confirmation page
+  window.location.href = "pay.html"; // Example: Redirect to a confirmation page
 }
 
 // Add event listener to the Proceed to Checkout button
