@@ -55,7 +55,7 @@
         </ul>
         <h3>Shopping Cart</h3>
         <section class="cart-list">
-            <ul>
+            <ul id="cart-items">
                 <li>
                     <img src="assets/img/pork-sinigang.jpg" alt="Product Main Image">
                     <div>
@@ -124,10 +124,11 @@
                     </section>
                 </form>
                 <h4 class="order-summary-title">Order Summary</h4>
-                <p class="order-summary">Items <span>₱40</span></p>
-                <p class="order-summary">Shipping Fee <span>₱50</span></p>
-                <p class="order-summary">Total Amount <span class="total-amount">₱170</span></p>
-                <section class="checkout-item row">
+                <p class="order-summary">Items <span class="total-item-amount" id="total-item-amount">₱0</span></p>
+                <p class="order-summary">Shipping Fee <span id="vat">₱50</span></p>
+                <p class="order-summary">Total Amount <span class="total-amount" id="total-amount-cart">₱0</span>
+                </p>
+                <section class=" checkout-item row">
                     <input type="submit" class="control-form" value="Proceed to Checkout">
                 </section>
             </section>
