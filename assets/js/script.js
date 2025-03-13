@@ -12,6 +12,9 @@ const category = document.querySelectorAll(".categories .category");
 const productsMain = document.querySelector(".products-main");
 const searchInput = document.querySelector(".search-container input");
 const searchButton = document.querySelector(".search-container button");
+const headerButtons = document.getElementById("header-buttons");
+const welcomeMessage = document.getElementById("welcome-message");
+const loggedInUserSpan = document.getElementById("logged-in-user");
 
 // Category Data
 const categories = [
@@ -261,6 +264,7 @@ const savorPinoyMenu = [
 // Initialize the product grid with all products
 window.addEventListener("load", () => {
   filterProducts("All Products");
+  updateHeaderButtons();
 });
 
 // Filter and display products based on category or search query
@@ -368,67 +372,31 @@ function changeProductView(url) {
 
 changeProductView(window.location.search);
 
-// On the home page (index.html)
-const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
-if (loggedInUser) {
-  console.log(`Welcome back, ${loggedInUser.firstName}!`);
-  // Display the user's name in the UI
-  document.getElementById(
-    "welcome-message"
-  ).textContent = `Welcome, ${loggedInUser.firstName}!`;
+// Update header buttons based on authentication status
+function updateHeaderButtons() {
+  const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
+
+  if (loggedInUser) {
+    // User is logged in
+    headerButtons.innerHTML = `
+      <button class="logout-btn" onclick="logout()">Logout</button>
+    `;
+    welcomeMessage.style.display = "block";
+    loggedInUserSpan.textContent = loggedInUser.firstName;
+  } else {
+    // User is not logged in
+    headerButtons.innerHTML = `
+      <a href="login.html" class="login-btn">Login</a>
+      <a href="sign-up.html" class="signup-btn">Signup</a>
+    `;
+    welcomeMessage.style.display = "none";
+  }
 }
 
-// Sign-Up Form Handling
-document
-  .getElementById("signUpForm")
-  .addEventListener("submit", function (event) {
-    event.preventDefault();
-
-    // Get form values
-    const firstName = document.getElementById("firstname").value;
-    const lastName = document.getElementById("lastname").value;
-    const email = document.getElementById("email").value;
-    const password = document.getElementById("password").value;
-    const confirmPassword = document.getElementById("confirmPassword").value;
-
-    // Validate password match
-    if (password !== confirmPassword) {
-      document.getElementById("error-message").textContent =
-        "Passwords do not match!";
-      return;
-    } else {
-      document.getElementById("error-message").textContent = "";
-    }
-
-    // Create user object
-    const user = {
-      firstName,
-      lastName,
-      email,
-      password,
-    };
-
-    // Check if users exist in local storage
-    let users = JSON.parse(localStorage.getItem("users")) || [];
-
-    // Check if the email is already registered
-    const existingUser = users.find((u) => u.email === email);
-    if (existingUser) {
-      document.getElementById("error-message").textContent =
-        "Email already registered!";
-      return;
-    }
-
-    // Add new user to the array
-    users.push(user);
-
-    // Save updated users array to local storage
-    localStorage.setItem("users", JSON.stringify(users));
-
-    // Clear the form
-    document.getElementById("signUpForm").reset();
-
-    // Redirect to login page or show success message
-    alert("Sign-up successful! Redirecting to login page...");
-    window.location.href = "login.html";
-  });
+// Logout function
+function logout() {
+  localStorage.removeItem("loggedInUser");
+  alert("You have been logged out.");
+  updateHeaderButtons(); // Update the header buttons after logout
+  window.location.href = "index.html"; // Refresh the page
+}
