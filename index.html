@@ -12,23 +12,53 @@
 <body>
   <!-- Header -->
   <header class="header">
-    <span class="header-text">
-      <img src="leaf-icon.png" alt="Leaf Icon" /> Let's order fresh items for
-      you.
-    </span>
+    <p class="header-text">
+      <span class="fa-solid fa-utensils"></span>
+      A plate with a spoon and fork forming a heart shape, symbolizing
+      love for Filipino food
+    </p>
     <div class="header-buttons">
       <button class="signup-btn">Signup</button>
       <button class="login-btn">Login</button>
     </div>
   </header>
 
+  <!-- Signup Modal -->
+  <section id="signupModal" class="modal">
+    <div class="modal-content">
+      <span class="close-modal">&times;</span>
+      <h2>Sign Up</h2>
+      <form id="signupForm">
+        <label for="signupFirstName">First Name</label>
+        <input type="text" id="signupFirstName" placeholder="Enter your first name" required />
+
+        <label for="signupLastName">Last Name</label>
+        <input type="text" id="signupLastName" placeholder="Enter your last name" required />
+
+        <label for="signupEmail">Email</label>
+        <input type="email" id="signupEmail" placeholder="Enter your email" required />
+
+        <label for="signupPassword">Password</label>
+        <input type="password" id="signupPassword" placeholder="Enter your password" required />
+
+        <label for="signupConfirmPassword">Confirm Password</label>
+        <input type="password" id="signupConfirmPassword" placeholder="Confirm your password" required />
+
+        <button type="submit">Sign Up</button>
+      </form>
+      <p>Already have an account? <a href="#" id="showLogin">Login</a></p>
+    </div>
+  </section>
   <!-- Sidebar -->
   <aside class="sidebar">
     <div class="sidebar-inner">
-      <img src="logo.png" alt="Logo" class="sidebar-logo" />
-      <button class="sidebar-btn">
-        <img src="grid-icon.png" alt="Menu" />
-      </button>
+      <a href="index.html" class="sidebar-logo" alt="logo">
+        <span class="fa-solid fa-utensils"></span>
+      </a>
+      <a class="sidebar-btn active" href="index.html">
+        <span class="fa-solid fa-shop">
+        </span>
+      </a>
     </div>
   </aside>
 
@@ -45,6 +75,8 @@
     </button>
   </div>
 
+
+
   <!-- Main Content -->
   <div class="main-container">
     <!-- Sign up Section -->
@@ -53,33 +85,33 @@
     <div class="categories">
       <h3>Categories</h3>
       <div class="category selected">
-        <img src="all-products.png" alt="All Products" />
+        <span></span>
         <span>All Products</span>
         <div class="count">36</div>
       </div>
       <div class="category">
-        <img src="vegetables.png" alt="Vegetables" />
+        <span></span>
         <span>Vegetables</span>
         <div class="count">12</div>
       </div>
       <div class="category">
-        <img src="fruits.png" alt="Fruits" />
+        <span></span>
         <span>Fruits</span>
         <div class="count">12</div>
       </div>
       <div class="category">
-        <img src="pork.png" alt="Pork" />
+        <span></span>
         <span>Pork</span>
         <div class="count">12</div>
       </div>
       <div class="category">
-        <img src="beef.png" alt="Beef" />
+        <span></span>
         <span>Beef</span>
         <div class="count">12</div>
       </div>
       <div class="category">
-        <img src="chicken.png" alt="Chicken" />
-        <span>Chicken</span>
+        <span></span>
+        <span>Desert</span>
         <div class="count">12</div>
       </div>
     </div>
@@ -90,7 +122,7 @@
       <ul class="products products-main" id="products-main">
         <li class="product">
           <img src="assets/img/pork-sinigang.jpg" alt="Product Image" />
-          <p class="category">Vegetables</p>
+          <p class="category">Sinigang na Baboy</p>
           <p class="rating">⭐⭐⭐⭐⭐ 36 Rating</p>
           <p class="price">$10</p>
         </li>
