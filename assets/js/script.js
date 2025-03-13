@@ -297,7 +297,13 @@ function filterProducts(category, searchQuery = "") {
     // Add click event to each product
     productItem.addEventListener("click", () => {
       // Redirect to product view page with the product's index as the ID
-      location.href = `product_view.html?id=${index}`;
+      let id = "";
+      savorPinoyMenu.forEach((data, index) => {
+        if (product.title == data.title) {
+          id = index;
+        }
+      });
+      location.href = `product_view.html?id=${id}`;
     });
 
     productsMain.appendChild(productItem);
@@ -362,157 +368,157 @@ function changeProductView(url) {
 
 changeProductView(window.location.search);
 
-// Add to cart functionality
-addToCart.addEventListener("click", function (e) {
-  e.preventDefault();
-  const addItem = { ...product };
-  const searchQuery = window.location.search;
-  const urlParams = new URLSearchParams(searchQuery);
-  const id = urlParams.get("id");
-  let handler = false;
+// // Add to cart functionality
+// addToCart.addEventListener("click", function (e) {
+//   e.preventDefault();
+//   const addItem = { ...product };
+//   const searchQuery = window.location.search;
+//   const urlParams = new URLSearchParams(searchQuery);
+//   const id = urlParams.get("id");
+//   let handler = false;
 
-  addItem.title = savorPinoyMenu[parseInt(id)].title;
-  addItem.price = savorPinoyMenu[parseInt(id)].price;
-  addItem.description = savorPinoyMenu[parseInt(id)].description;
-  addItem.quantity = productQuantity.firstElementChild.value;
-  addItem.image = savorPinoyMenu[parseInt(id)].image;
+//   addItem.title = savorPinoyMenu[parseInt(id)].title;
+//   addItem.price = savorPinoyMenu[parseInt(id)].price;
+//   addItem.description = savorPinoyMenu[parseInt(id)].description;
+//   addItem.quantity = productQuantity.firstElementChild.value;
+//   addItem.image = savorPinoyMenu[parseInt(id)].image;
 
-  // Check if item already exists in cart
-  userCart.forEach((li) => {
-    if (addItem.title == li.title) {
-      handler = true;
-    }
-  });
+//   // Check if item already exists in cart
+//   userCart.forEach((li) => {
+//     if (addItem.title == li.title) {
+//       handler = true;
+//     }
+//   });
 
-  // Update cart
-  if (handler) {
-    userCart[userCart.length - 1].quantity =
-      parseInt(userCart[userCart.length - 1].quantity) +
-      parseInt(productQuantity.firstElementChild.value);
-  } else {
-    userCart.push(addItem);
-    cartBtnModal.innerHTML =
-      "<i class='fa-solid fa-shopping-cart'></i> Cart (" +
-      userCart.length +
-      ")";
-  }
+//   // Update cart
+//   if (handler) {
+//     userCart[userCart.length - 1].quantity =
+//       parseInt(userCart[userCart.length - 1].quantity) +
+//       parseInt(productQuantity.firstElementChild.value);
+//   } else {
+//     userCart.push(addItem);
+//     cartBtnModal.innerHTML =
+//       "<i class='fa-solid fa-shopping-cart'></i> Cart (" +
+//       userCart.length +
+//       ")";
+//   }
 
-  createNotification("Added to Cart Successfully!", "text-green");
-});
+//   createNotification("Added to Cart Successfully!", "text-green");
+// });
 
-// Display cart modal
-cartBtnModal.addEventListener("click", function () {
-  cart.style.display = "block";
-  displayCartItems();
-});
+// // Display cart modal
+// cartBtnModal.addEventListener("click", function () {
+//   cart.style.display = "block";
+//   displayCartItems();
+// });
 
-// Display cart items
-function displayCartItems() {
-  cartList.innerHTML = ""; // Clear the cart list
+// // Display cart items
+// function displayCartItems() {
+//   cartList.innerHTML = ""; // Clear the cart list
 
-  if (userCart.length === 0) {
-    const li = document.createElement("li");
-    li.innerText = "No Items in Cart";
-    li.style.justifyContent = "center";
-    li.style.fontSize = "1.3em";
-    li.style.padding = "1em";
-    li.style.color = "red";
-    cartList.appendChild(li);
-  } else {
-    userCart.forEach((item, index) => {
-      const cartItem = document.createElement("li");
-      cartItem.innerHTML = `
-        <img src="assets/img/pork-sinigang.jpg" alt="Product Image" />
-        <div>
-          <h4>${item.title}</h4>
-          <p class="price">₱${item.price}</p>
-        </div>
-        <form class="product-quantity-form">
-          <label for="quantity-${index}">Quantity</label>
-          <input type="number" id="quantity-${index}" value="${item.quantity}" min="1" />
-        </form>
-        <form class="close-form">
-          <button type="submit" class="cart-close-button">&times;</button>
-        </form>
-      `;
-      cartList.appendChild(cartItem);
-    });
-  }
-}
+//   if (userCart.length === 0) {
+//     const li = document.createElement("li");
+//     li.innerText = "No Items in Cart";
+//     li.style.justifyContent = "center";
+//     li.style.fontSize = "1.3em";
+//     li.style.padding = "1em";
+//     li.style.color = "red";
+//     cartList.appendChild(li);
+//   } else {
+//     userCart.forEach((item, index) => {
+//       const cartItem = document.createElement("li");
+//       cartItem.innerHTML = `
+//         <img src="assets/img/pork-sinigang.jpg" alt="Product Image" />
+//         <div>
+//           <h4>${item.title}</h4>
+//           <p class="price">₱${item.price}</p>
+//         </div>
+//         <form class="product-quantity-form">
+//           <label for="quantity-${index}">Quantity</label>
+//           <input type="number" id="quantity-${index}" value="${item.quantity}" min="1" />
+//         </form>
+//         <form class="close-form">
+//           <button type="submit" class="cart-close-button">&times;</button>
+//         </form>
+//       `;
+//       cartList.appendChild(cartItem);
+//     });
+//   }
+// }
 
-// Close cart modal
-returnToProductView.addEventListener("click", function (e) {
-  e.preventDefault();
-  cart.style.display = "none";
-});
+// // Close cart modal
+// returnToProductView.addEventListener("click", function (e) {
+//   e.preventDefault();
+//   cart.style.display = "none";
+// });
 
-// Notification system
-function createNotification(text, color) {
-  const notification = document.createElement("li");
-  notification.className = color;
-  notification.innerText = text;
+// // Notification system
+// function createNotification(text, color) {
+//   const notification = document.createElement("li");
+//   notification.className = color;
+//   notification.innerText = text;
 
-  const closeButton = document.createElement("button");
-  closeButton.innerHTML = "&times;";
-  closeButton.addEventListener("click", () => notification.remove());
+//   const closeButton = document.createElement("button");
+//   closeButton.innerHTML = "&times;";
+//   closeButton.addEventListener("click", () => notification.remove());
 
-  notification.appendChild(closeButton);
-  document.getElementById("notification").appendChild(notification);
+//   notification.appendChild(closeButton);
+//   document.getElementById("notification").appendChild(notification);
 
-  setTimeout(() => notification.remove(), 3000);
-}
+//   setTimeout(() => notification.remove(), 3000);
+// }
 
-// Signup modal functionality
-const signupModal = document.getElementById("signupModal");
-const signupBtn = document.querySelector(".signup-btn");
-const showLogin = document.getElementById("showLogin");
-const closeModals = document.querySelectorAll(".close-modal");
+// // Signup modal functionality
+// const signupModal = document.getElementById("signupModal");
+// const signupBtn = document.querySelector(".signup-btn");
+// const showLogin = document.getElementById("showLogin");
+// const closeModals = document.querySelectorAll(".close-modal");
 
-// Open signup modal
-signupBtn.addEventListener("click", () => {
-  signupModal.style.display = "flex";
-});
+// // Open signup modal
+// signupBtn.addEventListener("click", () => {
+//   signupModal.style.display = "flex";
+// });
 
-// Switch to login modal
-showLogin.addEventListener("click", (e) => {
-  e.preventDefault();
-  signupModal.style.display = "none";
-  // Add logic to open the login modal if it exists
-});
+// // Switch to login modal
+// showLogin.addEventListener("click", (e) => {
+//   e.preventDefault();
+//   signupModal.style.display = "none";
+//   // Add logic to open the login modal if it exists
+// });
 
-// Close modals
-closeModals.forEach((btn) => {
-  btn.addEventListener("click", () => {
-    signupModal.style.display = "none";
-  });
-});
+// // Close modals
+// closeModals.forEach((btn) => {
+//   btn.addEventListener("click", () => {
+//     signupModal.style.display = "none";
+//   });
+// });
 
-// Close modals when clicking outside
-window.addEventListener("click", (e) => {
-  if (e.target === signupModal) {
-    signupModal.style.display = "none";
-  }
-});
+// // Close modals when clicking outside
+// window.addEventListener("click", (e) => {
+//   if (e.target === signupModal) {
+//     signupModal.style.display = "none";
+//   }
+// });
 
-// Handle signup form submission
-document.getElementById("signupForm").addEventListener("submit", (e) => {
-  e.preventDefault();
-  const firstName = document.getElementById("signupFirstName").value;
-  const lastName = document.getElementById("signupLastName").value;
-  const email = document.getElementById("signupEmail").value;
-  const password = document.getElementById("signupPassword").value;
-  const confirmPassword = document.getElementById(
-    "signupConfirmPassword"
-  ).value;
+// // Handle signup form submission
+// document.getElementById("signupForm").addEventListener("submit", (e) => {
+//   e.preventDefault();
+//   const firstName = document.getElementById("signupFirstName").value;
+//   const lastName = document.getElementById("signupLastName").value;
+//   const email = document.getElementById("signupEmail").value;
+//   const password = document.getElementById("signupPassword").value;
+//   const confirmPassword = document.getElementById(
+//     "signupConfirmPassword"
+//   ).value;
 
-  // Basic validation
-  if (password !== confirmPassword) {
-    alert("Passwords do not match!");
-    return;
-  }
+//   // Basic validation
+//   if (password !== confirmPassword) {
+//     alert("Passwords do not match!");
+//     return;
+//   }
 
-  // Simulate signup logic
-  console.log("Signup with:", { firstName, lastName, email, password });
-  alert("Signup successful!");
-  signupModal.style.display = "none";
-});
+//   // Simulate signup logic
+//   console.log("Signup with:", { firstName, lastName, email, password });
+//   alert("Signup successful!");
+//   signupModal.style.display = "none";
+// });
