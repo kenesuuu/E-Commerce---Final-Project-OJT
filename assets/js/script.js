@@ -230,7 +230,7 @@ function filterProducts(category) {
     productItem.classList.add("product");
 
     productItem.innerHTML = `
-      <img src="${product.image[0]}" alt="Product Image" />
+      <img src="${product.image}" alt="Product Image" />
       <p class="category">${product.title}</p>
       <p class="rating">⭐⭐⭐⭐⭐ 36 Rating</p>
       <p class="price">₱${product.price}</p>
