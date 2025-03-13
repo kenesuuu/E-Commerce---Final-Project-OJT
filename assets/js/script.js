@@ -368,157 +368,67 @@ function changeProductView(url) {
 
 changeProductView(window.location.search);
 
-// // Add to cart functionality
-// addToCart.addEventListener("click", function (e) {
-//   e.preventDefault();
-//   const addItem = { ...product };
-//   const searchQuery = window.location.search;
-//   const urlParams = new URLSearchParams(searchQuery);
-//   const id = urlParams.get("id");
-//   let handler = false;
+// On the home page (index.html)
+const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
+if (loggedInUser) {
+  console.log(`Welcome back, ${loggedInUser.firstName}!`);
+  // Display the user's name in the UI
+  document.getElementById(
+    "welcome-message"
+  ).textContent = `Welcome, ${loggedInUser.firstName}!`;
+}
 
-//   addItem.title = savorPinoyMenu[parseInt(id)].title;
-//   addItem.price = savorPinoyMenu[parseInt(id)].price;
-//   addItem.description = savorPinoyMenu[parseInt(id)].description;
-//   addItem.quantity = productQuantity.firstElementChild.value;
-//   addItem.image = savorPinoyMenu[parseInt(id)].image;
+// Sign-Up Form Handling
+document
+  .getElementById("signUpForm")
+  .addEventListener("submit", function (event) {
+    event.preventDefault();
 
-//   // Check if item already exists in cart
-//   userCart.forEach((li) => {
-//     if (addItem.title == li.title) {
-//       handler = true;
-//     }
-//   });
+    // Get form values
+    const firstName = document.getElementById("firstname").value;
+    const lastName = document.getElementById("lastname").value;
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+    const confirmPassword = document.getElementById("confirmPassword").value;
 
-//   // Update cart
-//   if (handler) {
-//     userCart[userCart.length - 1].quantity =
-//       parseInt(userCart[userCart.length - 1].quantity) +
-//       parseInt(productQuantity.firstElementChild.value);
-//   } else {
-//     userCart.push(addItem);
-//     cartBtnModal.innerHTML =
-//       "<i class='fa-solid fa-shopping-cart'></i> Cart (" +
-//       userCart.length +
-//       ")";
-//   }
+    // Validate password match
+    if (password !== confirmPassword) {
+      document.getElementById("error-message").textContent =
+        "Passwords do not match!";
+      return;
+    } else {
+      document.getElementById("error-message").textContent = "";
+    }
 
-//   createNotification("Added to Cart Successfully!", "text-green");
-// });
+    // Create user object
+    const user = {
+      firstName,
+      lastName,
+      email,
+      password,
+    };
 
-// // Display cart modal
-// cartBtnModal.addEventListener("click", function () {
-//   cart.style.display = "block";
-//   displayCartItems();
-// });
+    // Check if users exist in local storage
+    let users = JSON.parse(localStorage.getItem("users")) || [];
 
-// // Display cart items
-// function displayCartItems() {
-//   cartList.innerHTML = ""; // Clear the cart list
+    // Check if the email is already registered
+    const existingUser = users.find((u) => u.email === email);
+    if (existingUser) {
+      document.getElementById("error-message").textContent =
+        "Email already registered!";
+      return;
+    }
 
-//   if (userCart.length === 0) {
-//     const li = document.createElement("li");
-//     li.innerText = "No Items in Cart";
-//     li.style.justifyContent = "center";
-//     li.style.fontSize = "1.3em";
-//     li.style.padding = "1em";
-//     li.style.color = "red";
-//     cartList.appendChild(li);
-//   } else {
-//     userCart.forEach((item, index) => {
-//       const cartItem = document.createElement("li");
-//       cartItem.innerHTML = `
-//         <img src="assets/img/pork-sinigang.jpg" alt="Product Image" />
-//         <div>
-//           <h4>${item.title}</h4>
-//           <p class="price">₱${item.price}</p>
-//         </div>
-//         <form class="product-quantity-form">
-//           <label for="quantity-${index}">Quantity</label>
-//           <input type="number" id="quantity-${index}" value="${item.quantity}" min="1" />
-//         </form>
-//         <form class="close-form">
-//           <button type="submit" class="cart-close-button">&times;</button>
-//         </form>
-//       `;
-//       cartList.appendChild(cartItem);
-//     });
-//   }
-// }
+    // Add new user to the array
+    users.push(user);
 
-// // Close cart modal
-// returnToProductView.addEventListener("click", function (e) {
-//   e.preventDefault();
-//   cart.style.display = "none";
-// });
+    // Save updated users array to local storage
+    localStorage.setItem("users", JSON.stringify(users));
 
-// // Notification system
-// function createNotification(text, color) {
-//   const notification = document.createElement("li");
-//   notification.className = color;
-//   notification.innerText = text;
+    // Clear the form
+    document.getElementById("signUpForm").reset();
 
-//   const closeButton = document.createElement("button");
-//   closeButton.innerHTML = "&times;";
-//   closeButton.addEventListener("click", () => notification.remove());
-
-//   notification.appendChild(closeButton);
-//   document.getElementById("notification").appendChild(notification);
-
-//   setTimeout(() => notification.remove(), 3000);
-// }
-
-// // Signup modal functionality
-// const signupModal = document.getElementById("signupModal");
-// const signupBtn = document.querySelector(".signup-btn");
-// const showLogin = document.getElementById("showLogin");
-// const closeModals = document.querySelectorAll(".close-modal");
-
-// // Open signup modal
-// signupBtn.addEventListener("click", () => {
-//   signupModal.style.display = "flex";
-// });
-
-// // Switch to login modal
-// showLogin.addEventListener("click", (e) => {
-//   e.preventDefault();
-//   signupModal.style.display = "none";
-//   // Add logic to open the login modal if it exists
-// });
-
-// // Close modals
-// closeModals.forEach((btn) => {
-//   btn.addEventListener("click", () => {
-//     signupModal.style.display = "none";
-//   });
-// });
-
-// // Close modals when clicking outside
-// window.addEventListener("click", (e) => {
-//   if (e.target === signupModal) {
-//     signupModal.style.display = "none";
-//   }
-// });
-
-// // Handle signup form submission
-// document.getElementById("signupForm").addEventListener("submit", (e) => {
-//   e.preventDefault();
-//   const firstName = document.getElementById("signupFirstName").value;
-//   const lastName = document.getElementById("signupLastName").value;
-//   const email = document.getElementById("signupEmail").value;
-//   const password = document.getElementById("signupPassword").value;
-//   const confirmPassword = document.getElementById(
-//     "signupConfirmPassword"
-//   ).value;
-
-//   // Basic validation
-//   if (password !== confirmPassword) {
-//     alert("Passwords do not match!");
-//     return;
-//   }
-
-//   // Simulate signup logic
-//   console.log("Signup with:", { firstName, lastName, email, password });
-//   alert("Signup successful!");
-//   signupModal.style.display = "none";
-// });
+    // Redirect to login page or show success message
+    alert("Sign-up successful! Redirecting to login page...");
+    window.location.href = "login.html";
+  });
