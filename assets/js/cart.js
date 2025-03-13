@@ -3,6 +3,17 @@ const cartItemsContainer = document.getElementById("cart-items");
 const cartBtnModal = document.getElementById("cart-btn-modal");
 const itemsTotalElement = document.getElementById("total-item-amount"); // Corrected selector
 const totalAmountCart = document.getElementById("total-amount-cart");
+// DOM Elements for Shipping Information
+const firstNameInput = document.getElementById("firstName");
+const lastNameInput = document.getElementById("lastName");
+const addressInput = document.getElementById("address");
+const address2Input = document.getElementById("address2");
+const stateInput = document.getElementById("state");
+const cityInput = document.getElementById("city");
+const zipCodeInput = document.getElementById("zipCode");
+const proceedToCheckoutButton = document.querySelector(
+  ".checkout-item input[type='submit']"
+);
 
 // Shipping fee (fixed value)
 const shippingFee = 50;
@@ -24,6 +35,61 @@ function updateCartCount() {
   }
   cartBtnModal.innerHTML = `<i class="fa fa-shopping-cart"></i> Cart (${count})`;
 }
+
+// Function to validate shipping information
+function validateShippingInformation() {
+  // Check if required fields are empty
+  if (
+    !firstNameInput.value.trim() ||
+    !lastNameInput.value.trim() ||
+    !addressInput.value.trim() ||
+    !cityInput.value.trim() ||
+    !stateInput.value.trim() ||
+    !zipCodeInput.value.trim()
+  ) {
+    alert("Please fill out all required shipping information fields.");
+    return false;
+  }
+
+  // Additional validation
+  const zipCodePattern = /^\d{4}$/; // Example: 4-digit zip code
+  if (!zipCodePattern.test(zipCodeInput.value.trim())) {
+    alert("Please enter a valid 4-digit zip code.");
+    return false;
+  }
+
+  return true;
+}
+
+// Function to handle the checkout process
+function handleCheckout() {
+  if (!isUserLoggedIn()) {
+    alert("You must be logged in to proceed to checkout.");
+    window.location.href = "login.html";
+    return;
+  }
+
+  if (cartItems.length === 0) {
+    alert("Your cart is empty. Please add items to proceed to checkout.");
+    return;
+  }
+
+  // Validate shipping information
+  if (!validateShippingInformation()) {
+    return;
+  }
+
+  // If validation passes, proceed to checkout
+  alert("Proceeding to checkout...");
+  // Redirect to a confirmation page or process the order
+  window.location.href = "checkout_confirmation.html"; // Example: Redirect to a confirmation page
+}
+
+// Add event listener to the Proceed to Checkout button
+proceedToCheckoutButton.addEventListener("click", (e) => {
+  e.preventDefault(); // Prevent form submission
+  handleCheckout();
+});
 
 cartBtnModal.addEventListener("click", function () {
   location.href = "cart.html";
