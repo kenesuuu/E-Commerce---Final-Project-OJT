@@ -248,15 +248,19 @@ const savorPinoyMenu = [
   },
 ];
 
-// Function to check if the user is logged in
+/// Function to check if the user is logged in
 function isUserLoggedIn() {
-  return localStorage.getItem("isLoggedIn") === "true";
+  const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
+  return loggedInUser !== null;
 }
 
 // Function to update the cart count in the header
 function updateCartCount() {
-  const cartCount = cartItems.reduce((total, item) => total + item.quantity, 0);
-  cartBtnModal.innerHTML = `<i class="fa fa-shopping-cart"></i> Cart (${cartCount})`;
+  let count = 0;
+  for (let x = 0; x < cartItems.length; x++) {
+    count++;
+  }
+  cartBtnModal.innerHTML = `<i class="fa fa-shopping-cart"></i> Cart (${count})`;
 }
 
 // Function to display similar products based on category (max 5)
@@ -391,7 +395,7 @@ function displayProductDetails(productId) {
   } else {
     // Handle invalid product ID
     alert("Product not found!");
-    // window.location.href = "index.html"; // Redirect to home page
+    window.location.href = "index.html"; // Redirect to home page
   }
 }
 

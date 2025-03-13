@@ -2,11 +2,11 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dashboard</title>
-    <link rel="stylesheet" href="styles.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
 </head>
 
 <body>
@@ -17,11 +17,14 @@
       A plate with a spoon and fork forming a heart shape, symbolizing
       love for Filipino food
     </p>
-    <div class="header-buttons">
-      <a href="login.html" class="signup-btn">Signup</a href="">
-      <a href="sign-up.html" class="login-btn">Login</a href="">
+    <div id="welcome-message" style="display: none;">
+      <h2>Welcome, <span id="logged-in-user"></span>!</h2>
+    </div>
+    <div class="header-buttons" id="header-buttons">
+      <!-- Buttons will be dynamically updated based on authentication status -->
     </div>
   </header>
+
   <!-- Sidebar -->
   <aside class="sidebar">
     <div class="sidebar-inner">
@@ -29,8 +32,7 @@
         <span class="fa-solid fa-utensils"></span>
       </a>
       <a class="sidebar-btn active" href="index.html">
-        <span class="fa-solid fa-shop">
-        </span>
+        <span class="fa-solid fa-shop"></span>
       </a>
     </div>
   </aside>
@@ -43,16 +45,13 @@
         <i class="fa fa-search"></i>
       </button>
     </div>
-    <button class="cart-btn">
+    <button class="cart-btn" id="cart-btn-modal">
       <i class="fa fa-shopping-cart"></i> Cart (0)
     </button>
   </div>
 
-
-
   <!-- Main Content -->
   <div class="main-container">
-    <!-- Sign up Section -->
 
     <!-- Categories Section -->
     <div class="categories">
@@ -84,7 +83,7 @@
       </div>
       <div class="category">
         <span></span>
-        <span>Desert</span>
+        <span>Dessert</span>
         <div class="count">12</div>
       </div>
     </div>
@@ -93,11 +92,51 @@
     <main class="product-grid">
       <h2>All Products (36)</h2>
       <ul class="products products-main" id="products-main">
-
         <!-- Repeat for other products -->
       </ul>
     </main>
-    <script src="assets/js/script.js"></script>
+  </div>
+
+  <script src="/assets/js/auth.js" type="module">
+    // Import functions from auth.js
+
+    // Check if a user is logged in
+    const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
+    const headerButtons = document.getElementById("header-buttons");
+    const welcomeMessage = document.getElementById("welcome-message");
+    const loggedInUserSpan = document.getElementById("logged-in-user");
+
+    // Update header buttons based on authentication status
+    function updateHeaderButtons() {
+      if (loggedInUser) {
+        // User is logged in
+        headerButtons.innerHTML = `
+                    <span class="user-name">${loggedInUser.firstName}</span>
+                    <button class="logout-btn" onclick="logout()">Logout</button>
+                `;
+        welcomeMessage.style.display = "block";
+        loggedInUserSpan.textContent = loggedInUser.firstName;
+      } else {
+        // User is not logged in
+        headerButtons.innerHTML = `
+                    <a href="login.html" class="login-btn">Login</a>
+                    <a href="sign-up.html" class="signup-btn">Signup</a>
+                `;
+        welcomeMessage.style.display = "none";
+      }
+    }
+
+    // Initialize the header buttons on page load
+    updateHeaderButtons();
+
+    // Logout function
+    window.logout = function () {
+      logout(); // Call the logout function from auth.js
+      alert("You have been logged out.");
+      window.location.href = "index.html"; // Refresh the page
+    };
+  </script>
+  <script src="assets/js/script.js"></script>
 </body>
 
 </html>

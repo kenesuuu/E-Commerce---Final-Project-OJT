@@ -16,6 +16,9 @@ const headerButtons = document.getElementById("header-buttons");
 const welcomeMessage = document.getElementById("welcome-message");
 const loggedInUserSpan = document.getElementById("logged-in-user");
 
+// Cart Data (Initialize from localStorage or empty array)
+let cartItems = JSON.parse(localStorage.getItem("cart")) || [];
+
 // Category Data
 const categories = [
   { name: "All Products", icon: "fa-solid fa-basket-shopping" },
@@ -265,7 +268,17 @@ const savorPinoyMenu = [
 window.addEventListener("load", () => {
   filterProducts("All Products");
   updateHeaderButtons();
+  updateCartCount();
 });
+
+// Function to update the cart count in the header
+function updateCartCount() {
+  let count = 0;
+  for (let x = 0; x < cartItems.length; x++) {
+    count++;
+  }
+  cartBtnModal.innerHTML = `<i class="fa fa-shopping-cart"></i> Cart (${count})`;
+}
 
 // Filter and display products based on category or search query
 function filterProducts(category, searchQuery = "") {

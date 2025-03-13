@@ -17,9 +17,8 @@
             A plate with a spoon and fork forming a heart shape, symbolizing
             love for Filipino food
         </p>
-        <div class="header-buttons">
-            <a href="login.html" class="signup-btn">Signup</a href="">
-            <a href="sign-up.html" class="login-btn">Login</a href="">
+        <div class="header-buttons" id="header-buttons">
+            <!-- Buttons will be dynamically updated based on authentication status -->
         </div>
     </header>
 
@@ -121,7 +120,7 @@
                 </p>
                 <div class="product-form">
                     <form id="product-quantity">
-                        <input type="number" name="quantity" id="quantity" min="1" value="1">
+                        <input type="number" name="quantity" id="quantity" min="1" max="100" value="1">
                     </form>
                     <form id="product-total-amount">
                         <input type="text" name="total-amount" id="total-amount" value="₱120" disabled>
@@ -177,6 +176,7 @@
             </ul>
         </section>
     </main>
+    <script src="/assets/js/auth.js" type="module"></script>
     <script src="assets/js/product_details.js"></script>
 </body>
 
