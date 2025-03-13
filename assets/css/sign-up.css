@@ -112,18 +112,27 @@ main > section:last-child > div section a {
     width: 100%;
 }
 
+.sign-up div {
+    display: flex;
+    gap: 1em;
+}
+
 .sign-up input {
     width: 100%;
     padding: 1em;
-    border: 2px solid #DAD3FF;
+    border: 1px solid #DAD3FF;
     border-radius: 1em;
     font-size: 1rem;
     outline: none;
     transition: border-color 0.3s ease;
 }
 
-.sign-up input:focus {
-    border-color: #9C89FF;
+.sign-up input:valid {
+    border: 1px solid #9C89FF;
+}
+
+.sign-up input:invalid {
+    border: 1px solid #DAD3FF;
 }
 
 .sign-up span {
@@ -137,6 +146,7 @@ main > section:last-child > div section a {
 .sign-up div {
     display: flex;
     gap: 1em;
+    flex-direction: column;
 }
 
 .sign-up input[type="submit"] {
@@ -170,6 +180,11 @@ main > section:last-child > div section a {
     left: 0;
 }
 
+.signup-right-panel input[type="submit"]:hover {
+    background-color: #cac9c9;
+    color: #FFFFFF;
+}
+
 .close-button {
     position: absolute;
     top: 5px;
@@ -196,10 +211,6 @@ main > section:last-child > div section a {
 
     main > section:last-child > div:first-child {
         width: 100%;
-    }
-
-    .sign-up div {
-        flex-direction: column;
     }
 
     .signup-right-panel {
@@ -232,10 +243,6 @@ main > section:last-child > div section a {
     main > section:first-child p:last-child {
         flex-direction: column;
         gap: 0.2em;
-    }
-
-    .sign-up div {
-        flex-direction: column;
     }
 
     .sign-up input[type="submit"] {
