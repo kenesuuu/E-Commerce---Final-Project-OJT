@@ -2,133 +2,141 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dashboard</title>
-  <link rel="stylesheet" href="styles.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Product View</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
 </head>
 
 <body>
-  <!-- Header -->
-  <header class="header">
-    <span class="header-text">
-      <img src="leaf-icon.png" alt="Leaf Icon" /> Let's order fresh items for
-      you.
-    </span>
-    <div class="header-buttons">
-      <button class="signup-btn">Signup</button>
-      <button class="login-btn">Login</button>
-    </div>
-  </header>
+    <!-- Header -->
+    <header class="header">
+        <p class="header-text">
+            <span class="fa-solid fa-utensils"></span>
+            A plate with a spoon and fork forming a heart shape, symbolizing
+            love for Filipino food
+        </p>
+        <div class="header-buttons">
+            <button class="signup-btn">Signup</button>
+            <button class="login-btn">Login</button>
+        </div>
+    </header>
 
-  <!-- Sidebar -->
-  <aside class="sidebar">
-    <div class="sidebar-inner">
-      <img src="logo.png" alt="Logo" class="sidebar-logo" />
-      <button class="sidebar-btn">
-        <img src="grid-icon.png" alt="Menu" />
-      </button>
-    </div>
-  </aside>
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="sidebar-inner">
+            <a href="index.html" class="sidebar-logo" alt="logo">
+                <span class="fa-solid fa-utensils"></span>
+            </a>
+            <a class="sidebar-btn active" href="index.html">
+                <span class="fa-solid fa-shop">
+                </span>
+            </a>
+        </div>
+    </aside>
 
-  <!-- Search and Cart Container -->
-  <div class="search-cart-container">
-    <div class="search-container">
-      <input type="text" placeholder="Search Products" />
-      <button>
-        <i class="fa fa-search"></i>
-      </button>
-    </div>
-    <button class="cart-btn">
-      <i class="fa fa-shopping-cart"></i> Cart (0)
-    </button>
-  </div>
-
-  <!-- Main Content -->
-  <div class="main-container">
-    <!-- Sign up Section -->
-
-    <!-- Categories Section -->
-    <div class="categories">
-      <h3>Categories</h3>
-      <div class="category selected">
-        <img src="all-products.png" alt="All Products" />
-        <span>All Products</span>
-        <div class="count">36</div>
-      </div>
-      <div class="category">
-        <img src="vegetables.png" alt="Vegetables" />
-        <span>Vegetables</span>
-        <div class="count">12</div>
-      </div>
-      <div class="category">
-        <img src="fruits.png" alt="Fruits" />
-        <span>Fruits</span>
-        <div class="count">12</div>
-      </div>
-      <div class="category">
-        <img src="pork.png" alt="Pork" />
-        <span>Pork</span>
-        <div class="count">12</div>
-      </div>
-      <div class="category">
-        <img src="beef.png" alt="Beef" />
-        <span>Beef</span>
-        <div class="count">12</div>
-      </div>
-      <div class="category">
-        <img src="chicken.png" alt="Chicken" />
-        <span>Chicken</span>
-        <div class="count">12</div>
-      </div>
+    <!-- Search and Cart Container -->
+    <div class="search-cart-container">
+        <div class="search-container">
+            <input type="text" placeholder="Search Products" />
+            <button>
+                <i class="fa fa-search"></i>
+            </button>
+        </div>
+        <button class="cart-btn" id="cart-btn-modal">
+            <i class="fa fa-shopping-cart"></i> Cart (0)
+        </button>
     </div>
 
-    <!-- Product Grid Section -->
-    <main class="product-grid">
-      <h2>All Products (36)</h2>
-      <ul class="products products-main" id="products-main">
-        <li class="product">
-          <img src="assets/img/pork-sinigang.jpg" alt="Product Image" />
-          <p class="category">Vegetables</p>
-          <p class="rating">⭐⭐⭐⭐⭐ 36 Rating</p>
-          <p class="price">$10</p>
-        </li>
-        <li class="product">
-          <img src="assets/img/pork-sinigang.jpg" alt="Product Image" />
-          <p class="category">Vegetables</p>
-          <p class="rating">⭐⭐⭐⭐⭐ 36 Rating</p>
-          <p class="price">$10</p>
-        </li>
-        <li class="product">
-          <img src="assets/img/pork-sinigang.jpg" alt="Product Image" />
-          <p class="category">Vegetables</p>
-          <p class="rating">⭐⭐⭐⭐⭐ 36 Rating</p>
-          <p class="price">$10</p>
-        </li>
-        <li class="product">
-          <img src="assets/img/pork-sinigang.jpg" alt="Product Image" />
-          <p class="category">Vegetables</p>
-          <p class="rating">⭐⭐⭐⭐⭐ 36 Rating</p>
-          <p class="price">$10</p>
-        </li>
-        <li class="product">
-          <img src="assets/img/pork-sinigang.jpg" alt="Product Image" />
-          <p class="category">Vegetables</p>
-          <p class="rating">⭐⭐⭐⭐⭐ 36 Rating</p>
-          <p class="price">$10</p>
-        </li>
-        <li class="product">
-          <img src="assets/img/pork-sinigang.jpg" alt="Product Image" />
-          <p class="category">Vegetables</p>
-          <p class="rating">⭐⭐⭐⭐⭐ 36 Rating</p>
-          <p class="price">$10</p>
-        </li>
-        <!-- Repeat for other products -->
-      </ul>
+    <!-- Main Content -->
+    <main class="main-container product-view">
+        <!-- The first child of main is for notification -->
+        <ul id="notification">
+        </ul>
+        <section></section>
+        <section class="accordion">
+            <a href="index.html">
+                <span class="fa-solid fa-arrow-left"></span>
+            </a>
+            <p>All Products (30)</p>
+        </section>
+        <section class="product-main-view">
+            <section class="product-images">
+                <img src="assets/img/pork-sinigang.jpg" alt="Product Main Image">
+                <ul>
+                    <li><img src="assets/img/pork-sinigang.jpg" alt="Product Sub Image"></li>
+                    <li><img src="assets/img/Pork-Sinigang-1.jpg" alt="Product Sub Image"></li>
+                    <li><img src="assets/img/pork-sinigang.jpg" alt="Product Sub Image"></li>
+                    <li><img src="assets/img/Pork-Sinigang-1.jpg" alt="Product Sub Image"></li>
+                </ul>
+            </section>
+            <section class="product-body">
+                <h3>Sizzling Sisig</h3>
+                <p class="rating">⭐⭐⭐⭐⭐ 30 Rating</p>
+                <p class="price">₱180</p>
+                <p class="description">Crispy and flavorful chopped pork cheeks with onions, chili, and egg on a
+                    sizzling plate.
+                </p>
+                <div class="product-form">
+                    <form id="product-quantity">
+                        <input type="number" name="quantity" id="quantity" min="1" value="1">
+                    </form>
+                    <form id="product-total-amount">
+                        <input type="text" name="total-amount" id="total-amount" value="₱120" disabled>
+                    </form>
+                    <form class="add-to-cart">
+                        <label for="add-to-cart">
+                            <span class="fa-solid fa-cart-shopping"></span>
+                            <input type="submit" name="add-to-cart" id="add-to-cart" value="Add to Cart">
+                        </label>
+                    </form>
+                </div>
+            </section>
+        </section>
+        <section class="similar-product-view">
+            <p>Similar Products</p>
+            <ul class="products">
+                <li class="product">
+                    <img src="assets/img/pork-sinigang.jpg" alt="Product Image">
+                    <p class="category">Vegetables</p>
+                    <p class="rating">⭐⭐⭐⭐⭐ 36 Rating</p>
+                    <p class="price">₱10</p>
+                </li>
+                <li class="product">
+                    <img src="assets/img/pork-sinigang.jpg" alt="Product Image">
+                    <p class="category">Vegetables</p>
+                    <p class="rating">⭐⭐⭐⭐⭐ 36 Rating</p>
+                    <p class="price">₱10</p>
+                </li>
+                <li class="product">
+                    <img src="assets/img/pork-sinigang.jpg" alt="Product Image">
+                    <p class="category">Vegetables</p>
+                    <p class="rating">⭐⭐⭐⭐⭐ 36 Rating</p>
+                    <p class="price">₱10</p>
+                </li>
+                <li class="product">
+                    <img src="assets/img/pork-sinigang.jpg" alt="Product Image">
+                    <p class="category">Vegetables</p>
+                    <p class="rating">⭐⭐⭐⭐⭐ 36 Rating</p>
+                    <p class="price">₱10</p>
+                </li>
+                <li class="product">
+                    <img src="assets/img/pork-sinigang.jpg" alt="Product Image">
+                    <p class="category">Vegetables</p>
+                    <p class="rating">⭐⭐⭐⭐⭐ 36 Rating</p>
+                    <p class="price">₱10</p>
+                </li>
+                <li class="product">
+                    <img src="assets/img/pork-sinigang.jpg" alt="Product Image">
+                    <p class="category">Vegetables</p>
+                    <p class="rating">⭐⭐⭐⭐⭐ 36 Rating</p>
+                    <p class="price">₱10</p>
+                </li>
+            </ul>
+        </section>
     </main>
-  </div>
-  <script src="assets/js/script.js"></script>
+    <script src="assets/js/script.js"></script>
 </body>
 
 </html>

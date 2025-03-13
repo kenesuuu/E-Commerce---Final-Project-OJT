@@ -20,7 +20,7 @@ const savorPinoyMenu = [
     price: 180,
     description:
       "Tangy and savory pork soup with fresh vegetables and tamarind-based broth.",
-    // image: "https://example.com/sinigang.jpg",
+    image: "assets/img/sinigang1.png",
   },
   {
     title: "Adobong Manok at Baboy",
